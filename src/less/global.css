@@ -53,124 +53,6 @@ p {
     font-weight: 500
 }
 
-#navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 50px;
-    background: #fff;
-    border-bottom: 1px solid #dadada;
-    z-index: 55
-}
-
-#nav-btn {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 57
-}
-
-.nav-btn-bar {
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background: #000
-}
-
-#nav-btn-bar-1 {
-    top: 0
-}
-
-#nav-btn-bar-2 {
-    top: 9px
-}
-
-#nav-btn-bar-3 {
-    top: 18px
-}
-
-#navbar-label {
-    position: relative;
-    font-size: 14px;
-    line-height: 50px;
-    padding-left: 70px;
-    z-index: 56
-}
-
-#nav-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,.6);
-    z-index: 35;
-    display: none
-}
-
-#nav {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 80%;
-    background: #fff;
-    z-index: 50;
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%)
-}
-
-#nav-list {
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 80px 15px 10px;
-    width: 100%
-}
-
-.menu-item {
-    position: relative;
-    display: block
-}
-
-.menu-item.current-menu-item a {
-    cursor: default
-}
-
-.menu-item.current-menu-item a,.menu-item a:hover,.menu-item a:focus {
-    color: #000
-}
-
-.menu-item a {
-    position: relative;
-    display: block;
-    margin: 0 0 12px;
-    padding: 0 7px 8px;
-    font-size: 17px;
-    line-height: 17px;
-    color: #4d4d4d;
-    transition: .6s color cubic-bezier(.19,1,.22,1)
-}
-
-.menu-item a.active {
-    cursor: default
-}
-
-.menu-item a:hover,.menu-item a.active {
-    color: #000
-}
-
-#nav-lang {
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0 15px
-}
-
 #loading {
     position: fixed;
     top: 0;
@@ -337,7 +219,7 @@ p {
 .logo-text {
     display: inline-block;
     vertical-align: top;
-    margin-left: 2px;
+    margin-left: 8px;
     transition: .7s fill linear,.7s opacity linear
 }
 

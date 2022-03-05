@@ -48,7 +48,7 @@ export default defineComponent({
       clearInterval(this.interval)
       this.interval = setInterval(() => {
         this.switchText()
-      }, 1400)
+      }, 2000)
     },
     switchText() {
       const $text = this.$refs.titleSecondLine
@@ -58,7 +58,7 @@ export default defineComponent({
         yPercent: -10,
         opacity: 0,
         onComplete: () => {
-          $text.innerHTML = 'your <span class="title-word">' + this.texts[e] + "</span>?",
+          $text.innerHTML = '<span class="title-word">' + this.texts[e] + "</span>?",
             this.textIndex = e,
             gsap.fromTo($text, {
               duration: 0.4,
@@ -79,28 +79,7 @@ export default defineComponent({
 
 <template>
   <a id="logo" href="https://app.wookmama.co" class="active">
-    <svg id="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-      <path
-        id="logo-icon-3"
-        class="logo-icon-part logo-icon-3"
-        d="M16.09,15.94C2.65,9.15,3.57,5.82,4.65,4.72A15.9,15.9,0,0,0,.22,13.31c0,.11,0,.23-.06.35s-.07.45-.09.69h0c0,.25,0,.5-.06.76v.09a1.62,1.62,0,0,0,0,.22C0,17.24.5,18,1.24,18.5h0a2.67,2.67,0,0,0,2.27.25,2.13,2.13,0,0,0,1.1-.93h0A4,4,0,0,1,12,20v8.4C12,30.1,13,32,16.09,32a16,16,0,0,0,11.27-4.74c.88-.9,2.21-4.47-11.27-11.29"
-      />
-      <path
-        id="logo-icon-2"
-        class="logo-icon-part logo-icon-2"
-        d="M32,16A16,16,0,0,0,16,0,15.82,15.82,0,0,0,8.82,1.7a16,16,0,0,0-4.17,3c-1.08,1.1-2,4.43,11.44,11.22S28.24,26.33,27.36,27.23A15.91,15.91,0,0,0,32,16"
-      />
-      <path
-        id="logo-icon-4"
-        class="logo-icon-part logo-icon-4"
-        d="M14,26.84c-.7,0-1.35,0-2-.07v1.61C12,30.1,13,32,16.1,32a16,16,0,0,0,7.23-1.78c2.25-1.4-1.56-3.28-9.36-3.35"
-      />
-      <path
-        id="logo-icon-1"
-        class="logo-icon-part logo-icon-1"
-        d="M18.05,5.13C26.33,5.2,29.14,7.46,31,10.34A16,16,0,0,0,8.82,1.7C6.3,3.11,10.11,5.06,18.05,5.13"
-      />
-    </svg>
+    <img src="./assets/logo.png" id="logo-icon" />
     <span class="logo-text">VPlayer</span>
   </a>
   <div id="main-container">
@@ -121,38 +100,20 @@ export default defineComponent({
                 class="title-second-line"
                 style="opacity: 0.559841; transform: translate(0%, -4.40159%) translate3d(0px, 0px, 0px);"
               >
-                是
-                <span class="title-word">interior</span>?
+                喜欢什么呢？
+                <span class="title-word"></span>?
               </span>
             </h1>
           </div>
           <div class="part-images" ref="introImages">
             <div class="part-images-inner part-images-inner-3-images">
               <picture
-                class="col-sm-3 part-image"
+                class="col-sm-8 part-image"
               >
                 <img
                   class="img-responsive part-img part-image-1"
                   src="./assets/list.png"
                   alt="Packaging"
-                />
-              </picture>
-              <picture
-                class="col-sm-3 part-image part-image-2"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/lyric.png"
-                  alt="Interior"
-                />
-              </picture>
-              <picture
-                class="col-sm-3 part-image part-image-3"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/setting.png"
-                  alt="Book"
                 />
               </picture>
             </div>
@@ -169,12 +130,12 @@ export default defineComponent({
         <div class="container part-container">
           <div class="part-text">
             <h2 class="col-sm-offset-1 col-sm-10 part-title">
-              Find, create and try
-              <span class="title-word">color palettes</span>
+              Recommend songs according to
+              <span class="title-word">your taste</span>
             </h2>
             <p
               class="col-sm-offset-2 col-sm-8"
-            >Choosing colors for design projects can be a hassle, so we made the color selection process easy, creative and playful!</p>
+            >Don't know what to listen to? Private FM music gives you the answer</p>
           </div>
           <div class="part-images">
             <div class="part-images-inner part-images-inner-3-images">
@@ -351,38 +312,34 @@ export default defineComponent({
         <div class="container part-container">
           <div class="part-text">
             <h2 class="col-sm-offset-1 col-sm-10 part-title">
-              Raise up your
-              <span class="title-word">music</span> now!
+              Start your
+              <span class="title-word">music</span> journey!
             </h2>
             <p class="col-sm-offset-1 col-sm-10">
               Free download on the
               <a
-                href="https://apps.apple.com/us/app/wookmama-color-visualizer/id1553793793"
+                href="https://github.com/GuMengYu/v-player/releases"
                 target="_blank"
-              >Github</a>, coming soon on direct link donwload.
+              >Github</a>, coming soon on <a
+                href="https://github.com/GuMengYu/v-player/releases"
+                target="_blank"
+              >direct link</a> donwload.
             </p>
           </div>
         </div>
         <div class="part-footer">
           <a
-            href="https://app.termly.io/document/terms-of-use-for-ios-app/2d921f99-7072-4f41-9b64-9c6b114791e2"
-            target="_blank"
+            href="mailto:1415515984yuri@gmail.com"
           >邮箱联系</a> -
           <a
-            href="https://app.termly.io/document/privacy-policy/a88846f3-e71d-43c2-b5db-1148d2cef1f5"
+            href="https://github.com/GuMengYu/v-player/blob/dev/LICENSE"
             target="_blank"
-          >免责声明</a>
+          >LICENSE</a>
           <br />© GuMengYu - 2022 - All rights reserved
         </div>
       </section>
-
-      <footer id="footer">
-        <a class="footer-link" href="https://github.com/GuMengYu/v-player" target="_blank">Github</a>
-        <a class="footer-link" href="https://github.com/GuMengYu" target="_blank">GuMengYu</a>
-      </footer>
-
       <a
-        href="https://apps.apple.com/us/app/wookmama-color-visualizer/id1553793793"
+        href="https://github.com/GuMengYu/v-player/releases"
         target="_blank"
         id="download-btn"
       >免费下载 github</a>
