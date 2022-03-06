@@ -1,6 +1,20 @@
 <script setup>
+import { reactive, computed, watchEffect } from 'vue';
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+
+const author = reactive({
+  name: 'hyu',
+  books: ['Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery']
+})
+
+const publishedBooksMessage = computed(() => {
+  return author.books.length > 0 ? 'yes' : 'no'
+})
+
+watchEffect()
 
 
 </script>
@@ -19,29 +33,17 @@ export default defineComponent({
       textIndex: 0,
     }
   },
-  mounted() {
+  async mounted() {
     this.initTimer();
-    // this.switchText()
-    // gsap.to(this.$refs.introImages, {
-    //   scrollTrigger: {
-    //     trigger: this.$refs.introImages,        
-    //   },
-    //   y: -150,
-    //   scrub: true,
-    //   markers: true,
-    //   duration: 1,
-    // })
-    // gsap.to(this.$refs.findImages, {
-    //   scrollTrigger: {
-    //     trigger: this.$refs.findImages,  
-    //     toggleActions: 'restart pause reverse pause'      
-    //   },
-    //   x: 200,
-    //   scrub: true,
-    //   markers: true,
-    //   ease: 'expo.out',
-    //   duration: 1.8,
-    // })
+    gsap.to(this.$refs.introImages, {
+      scrollTrigger: {
+        trigger: this.$refs.introImages,
+      },
+      y: -130,
+      scrub: true,
+      markers: true,
+      duration: 0.8,
+    })
   },
   methods: {
     initTimer() {
@@ -73,6 +75,45 @@ export default defineComponent({
         }
       })
     },
+    initColorSwitch() {
+      setTimeout(() => {
+        gsap.from('#preview .part-images', {
+          scrollTrigger: {
+            trigger: '#preview .part-images',
+          },
+          x: -200,
+          duration: .8,
+        })
+        gsap.to('body', {
+          scrollTrigger: '#intro',
+          background: '#F5DEDA',
+        })
+        gsap.to('body', {
+          scrollTrigger: {
+            trigger: '#find-palettes',
+            toggleActions: 'restart resume reverse pause'
+          },
+          background: '#E1E4D5',
+          duration: 0.5
+        })
+        gsap.to('body', {
+          scrollTrigger: {
+            trigger: '#preview',
+            toggleActions: 'restart resume reverse pause'
+          },
+          background: '#A6C2D8',
+          duration: 0.5
+        })
+        gsap.to('body', {
+          scrollTrigger: {
+            trigger: '#color-palettes',
+            toggleActions: 'restart resume reverse pause'
+          },
+          background: '#E1E2EC',
+          duration: 0.5
+        })
+      }, 200)
+    }
   }
 })
 </script>
@@ -107,12 +148,10 @@ export default defineComponent({
           </div>
           <div class="part-images" ref="introImages">
             <div class="part-images-inner part-images-inner-3-images">
-              <picture
-                class="col-sm-8 part-image"
-              >
+              <picture class="col-sm-8 part-image">
                 <img
                   class="img-responsive part-img part-image-1"
-                  src="./assets/list.png"
+                  src="./assets/首页.png"
                   alt="Packaging"
                 />
               </picture>
@@ -139,32 +178,14 @@ export default defineComponent({
           </div>
           <div class="part-images">
             <div class="part-images-inner part-images-inner-3-images">
-              <picture
-                class="col-sm-3 part-image part-image-1"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/next.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-1">
+                <img class="img-responsive part-img" src="./assets/歌手.png" alt="Color palettes" />
               </picture>
-              <picture
-                class="col-sm-3 part-image part-image-2"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-2">
+                <img class="img-responsive part-img" src="./assets/专辑.png" alt="Color palettes" />
               </picture>
-              <picture
-                class="col-sm-3 part-image part-image-3"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/lyric.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-3">
+                <img class="img-responsive part-img" src="./assets/歌单.png" alt="Color palettes" />
               </picture>
             </div>
           </div>
@@ -184,11 +205,9 @@ export default defineComponent({
               <span class="title-word">theme</span>
             </h2>
           </div>
-          <div class="part-images" ref="findImages">
+          <div class="part-images">
             <div class="part-images-inner part-images-inner-1-image">
-              <picture
-                class="col-sm-8 part-image part-image-3"
-              >
+              <picture class="col-sm-8 part-image part-image-3">
                 <img
                   class="img-responsive part-img"
                   src="./assets/light&dark.png"
@@ -215,32 +234,14 @@ export default defineComponent({
           </div>
           <div class="part-images">
             <div class="part-images-inner part-images-inner-3-images">
-              <picture
-                class="col-sm-3 part-image part-image-1"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/artist.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-1">
+                <img class="img-responsive part-img" src="./assets/资料库.png" alt="Color palettes" />
               </picture>
-              <picture
-                class="col-sm-3 part-image part-image-2"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-2">
+                <img class="img-responsive part-img" src="./assets/正在播放.png" alt="Color palettes" />
               </picture>
-              <picture
-                class="col-sm-3 part-image part-image-3"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Color palettes"
-                />
+              <picture class="col-sm-4 part-image part-image-3">
+                <img class="img-responsive part-img" src="./assets/发现.png" alt="Color palettes" />
               </picture>
             </div>
           </div>
@@ -261,42 +262,9 @@ export default defineComponent({
             </h2>
           </div>
           <div class="part-images">
-            <div class="part-images-inner part-images-inner-4-images">
-              <picture
-                class="col-sm-3 part-image part-image-1"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Visualizations"
-                />
-              </picture>
-              <picture
-                class="col-sm-3 part-image part-image-2"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Visualizations"
-                />
-              </picture>
-              <picture
-                class="col-sm-3 part-image part-image-3"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Visualizations"
-                />
-              </picture>
-              <picture
-                class="col-sm-3 part-image part-image-4"
-              >
-                <img
-                  class="img-responsive part-img"
-                  src="./assets/light&dark.png"
-                  alt="Visualizations"
-                />
+            <div class="part-images-inner">
+              <picture class="col-sm-8 part-image">
+                <img class="img-responsive part-img" src="./assets/设置.png" alt="Visualizations" />
               </picture>
             </div>
           </div>
@@ -320,21 +288,14 @@ export default defineComponent({
               <a
                 href="https://github.com/GuMengYu/v-player/releases"
                 target="_blank"
-              >Github</a>, coming soon on <a
-                href="https://github.com/GuMengYu/v-player/releases"
-                target="_blank"
-              >direct link</a> donwload.
+              >Github</a>, coming soon on
+              <a href="https://github.com/GuMengYu/v-player/releases" target="_blank">direct link</a> donwload.
             </p>
           </div>
         </div>
         <div class="part-footer">
-          <a
-            href="mailto:1415515984yuri@gmail.com"
-          >邮箱联系</a> -
-          <a
-            href="https://github.com/GuMengYu/v-player/blob/dev/LICENSE"
-            target="_blank"
-          >LICENSE</a>
+          <a href="mailto:1415515984yuri@gmail.com">邮箱联系</a> -
+          <a href="https://github.com/GuMengYu/v-player/blob/dev/LICENSE" target="_blank">LICENSE</a>
           <br />© GuMengYu - 2022 - All rights reserved
         </div>
       </section>

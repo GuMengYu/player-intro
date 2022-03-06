@@ -175,7 +175,7 @@ p {
     overflow: hidden
 }
 
-.page-container:after {
+/* .page-container:after {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -185,7 +185,7 @@ p {
     content: '';
     z-index: 35;
     transition: 1.4s opacity linear
-}
+} */
 
 .switching-part .page-container:after {
     opacity: 0
@@ -228,7 +228,7 @@ p {
     min-height: 100vh;
     text-align: center;
     background-color: transparent;
-    margin-top: -25vh;
+    /* margin-top: -25vh; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -291,7 +291,7 @@ p {
 
 .part-image .part-img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 5px 20px 40px 0 rgba(0,0,0,.35)
 }
 
@@ -1301,10 +1301,6 @@ body.info .part-img {
         justify-content: center;
         gap: 20px;
         transform: translate(0,0)
-    }
-
-    .part-image .part-img {
-        border-radius: 20px
     }
 
     .part-footer {
